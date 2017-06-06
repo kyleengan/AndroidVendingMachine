@@ -74,4 +74,11 @@ public class MainActivityTest {
 
         assertEquals("$0.50", statusScreen.getText());
     }
+
+    @Test
+    public void pressingDimeButton_updatesAmountInsertedBy10Cents() {
+        dimeButton.performClick();
+
+        assertEquals("$0.10", statusScreen.getText());
+    }
 }

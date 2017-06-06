@@ -12,6 +12,7 @@ public class MainActivity extends AppCompatActivity {
 
     private TextView statusScreen;
     private Button quarterButton;
+    private Button dimeButton;
 
     private NumberFormat currencyFormat;
 
@@ -26,6 +27,7 @@ public class MainActivity extends AppCompatActivity {
 
         statusScreen = (TextView) findViewById(R.id.statusScreen);
         quarterButton = (Button) findViewById(R.id.quarterButton);
+        dimeButton = (Button) findViewById(R.id.dimeButton);
 
         configureClickListeners();
     }
@@ -35,6 +37,13 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 addAmount(0.25);
+            }
+        });
+
+        dimeButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                addAmount(0.10);
             }
         });
     }
