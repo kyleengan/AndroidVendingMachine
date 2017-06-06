@@ -21,12 +21,14 @@ public class MainActivityTest {
 
     TextView statusScreen;
     Button quarterButton;
+    Button dimeButton;
 
     @Before
     public void setUp() {
         Activity activity = Robolectric.setupActivity(MainActivity.class);
         statusScreen = (TextView) activity.findViewById(R.id.statusScreen);
         quarterButton = (Button) activity.findViewById(R.id.quarterButton);
+        dimeButton = (Button) activity.findViewById(R.id.dimeButton);
     }
 
     @Test
@@ -37,5 +39,10 @@ public class MainActivityTest {
     @Test
     public void quarterButtonReads25C_whenInitialized() {
         assertEquals("25C", quarterButton.getText());
+    }
+
+    @Test
+    public void dimeButtonReads10C_whenInitialized() {
+        assertEquals("10C", dimeButton.getText());
     }
 }
