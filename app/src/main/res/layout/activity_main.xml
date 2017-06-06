@@ -32,6 +32,12 @@
             android:layout_height="70dp"
             android:text="10C"/>
 
+        <Button
+            android:id="@+id/nickelButton"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:text="5C"/>
+
     </LinearLayout>
 
 </LinearLayout>

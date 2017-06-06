@@ -22,6 +22,7 @@ public class MainActivityTest {
     TextView statusScreen;
     Button quarterButton;
     Button dimeButton;
+    Button nickelButton;
 
     @Before
     public void setUp() {
@@ -29,6 +30,7 @@ public class MainActivityTest {
         statusScreen = (TextView) activity.findViewById(R.id.statusScreen);
         quarterButton = (Button) activity.findViewById(R.id.quarterButton);
         dimeButton = (Button) activity.findViewById(R.id.dimeButton);
+        nickelButton = (Button) activity.findViewById(R.id.nickelButton);
     }
 
     @Test
@@ -44,5 +46,10 @@ public class MainActivityTest {
     @Test
     public void dimeButtonReads10C_whenInitialized() {
         assertEquals("10C", dimeButton.getText());
+    }
+
+    @Test
+    public void nickelButtonReads5C_whenInitialized() {
+        assertEquals("5C", nickelButton.getText());
     }
 }
