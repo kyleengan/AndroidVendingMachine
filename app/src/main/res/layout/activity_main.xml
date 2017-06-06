@@ -13,7 +13,7 @@
         android:layout_width="match_parent"
         android:layout_height="28dp"
         android:gravity="center"
-        android:text="INSERT COIN" />
+        android:text="@string/insert_coin" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -24,25 +24,25 @@
             android:id="@+id/quarterButton"
             android:layout_width="70dp"
             android:layout_height="70dp"
-            android:text="25C"/>
+            android:text="@string/quarter"/>
 
         <Button
             android:id="@+id/dimeButton"
             android:layout_width="70dp"
             android:layout_height="70dp"
-            android:text="10C"/>
+            android:text="@string/dime"/>
 
         <Button
             android:id="@+id/nickelButton"
             android:layout_width="70dp"
             android:layout_height="70dp"
-            android:text="5C"/>
+            android:text="@string/nickel"/>
 
         <Button
             android:id="@+id/pennyButton"
             android:layout_width="70dp"
             android:layout_height="70dp"
-            android:text="1C"/>
+            android:text="@string/penny"/>
 
     </LinearLayout>
 
