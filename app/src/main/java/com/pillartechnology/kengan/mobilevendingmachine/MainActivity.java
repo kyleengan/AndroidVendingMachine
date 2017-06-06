@@ -13,6 +13,7 @@ public class MainActivity extends AppCompatActivity {
     private TextView statusScreen;
     private Button quarterButton;
     private Button dimeButton;
+    private Button nickelButton;
 
     private NumberFormat currencyFormat;
 
@@ -28,6 +29,7 @@ public class MainActivity extends AppCompatActivity {
         statusScreen = (TextView) findViewById(R.id.statusScreen);
         quarterButton = (Button) findViewById(R.id.quarterButton);
         dimeButton = (Button) findViewById(R.id.dimeButton);
+        nickelButton = (Button) findViewById(R.id.nickelButton);
 
         configureClickListeners();
     }
@@ -44,6 +46,13 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 addAmount(0.10);
+            }
+        });
+
+        nickelButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                addAmount(0.05);
             }
         });
     }

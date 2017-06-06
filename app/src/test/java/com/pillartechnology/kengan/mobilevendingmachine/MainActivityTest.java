@@ -81,4 +81,20 @@ public class MainActivityTest {
 
         assertEquals("$0.10", statusScreen.getText());
     }
+
+    @Test
+    public void pressingNickelButton_updatesAmountInsertedBy5Cents() {
+        nickelButton.performClick();
+
+        assertEquals("$0.05", statusScreen.getText());
+    }
+
+    @Test
+    public void pressingQuarterNickelAndDimeButtons_updatesAmountInsertedBy40Cents() {
+        quarterButton.performClick();
+        dimeButton.performClick();
+        nickelButton.performClick();
+
+        assertEquals("$0.40", statusScreen.getText());
+    }
 }
