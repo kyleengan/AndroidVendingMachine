@@ -59,4 +59,19 @@ public class MainActivityTest {
     public void pennyButtonReads1C_whenInitialized() {
         assertEquals("1C", pennyButton.getText());
     }
+
+    @Test
+    public void pressingQuarterButton_updatesAmountInsertedBy25Cents() {
+        quarterButton.performClick();
+
+        assertEquals("$0.25", statusScreen.getText());
+    }
+
+    @Test
+    public void pressingQuarterButtonTwice_updatesAmountInsertedBy50Cents() {
+        quarterButton.performClick();
+        quarterButton.performClick();
+
+        assertEquals("$0.50", statusScreen.getText());
+    }
 }
