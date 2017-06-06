@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context="com.pillartechnology.kengan.mobilevendingmachine.MainActivity"
 
     android:weightSum="1">
@@ -14,6 +15,25 @@
         android:layout_height="28dp"
         android:gravity="center"
         android:text="INSERT COIN" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/quarterButton"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:text="25C"/>
+
+
+
+    </LinearLayout>
+
+
+
+
 
 
 
