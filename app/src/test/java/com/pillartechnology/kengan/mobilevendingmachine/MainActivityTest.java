@@ -23,6 +23,7 @@ public class MainActivityTest {
     Button quarterButton;
     Button dimeButton;
     Button nickelButton;
+    Button pennyButton;
 
     @Before
     public void setUp() {
@@ -31,6 +32,7 @@ public class MainActivityTest {
         quarterButton = (Button) activity.findViewById(R.id.quarterButton);
         dimeButton = (Button) activity.findViewById(R.id.dimeButton);
         nickelButton = (Button) activity.findViewById(R.id.nickelButton);
+        pennyButton = (Button) activity.findViewById(R.id.pennyButton);
     }
 
     @Test
@@ -51,5 +53,10 @@ public class MainActivityTest {
     @Test
     public void nickelButtonReads5C_whenInitialized() {
         assertEquals("5C", nickelButton.getText());
+    }
+
+    @Test
+    public void pennyButtonReads1C_whenInitialized() {
+        assertEquals("1C", pennyButton.getText());
     }
 }
