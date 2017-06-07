@@ -19,16 +19,21 @@ import static org.junit.Assert.assertEquals;
 @Config(constants = BuildConfig.class)
 public class MainActivityTest {
 
-    TextView statusScreen;
-    Button quarterButton;
-    Button dimeButton;
-    Button nickelButton;
-    Button pennyButton;
+    private TextView statusScreen;
+    private Button quarterButton;
+    private Button dimeButton;
+    private Button nickelButton;
+    private Button pennyButton;
+    private TextView coinReturnLabel;
+    private TextView coinReturnAmount;
+
 
     @Before
     public void setUp() {
         Activity activity = Robolectric.setupActivity(MainActivity.class);
         statusScreen = (TextView) activity.findViewById(R.id.statusScreen);
+        coinReturnAmount = (TextView) activity.findViewById(R.id.coinReturnAmount);
+        coinReturnLabel = (TextView) activity.findViewById(R.id.coinReturnLabel);
         quarterButton = (Button) activity.findViewById(R.id.quarterButton);
         dimeButton = (Button) activity.findViewById(R.id.dimeButton);
         nickelButton = (Button) activity.findViewById(R.id.nickelButton);
@@ -58,6 +63,16 @@ public class MainActivityTest {
     @Test
     public void pennyButtonReads1C_whenInitialized() {
         assertEquals("1C", pennyButton.getText());
+    }
+
+    @Test
+    public void coinReturnLabelReadsCoinReturn_whenInitialized() {
+        assertEquals("Coin Return:", coinReturnLabel.getText());
+    }
+
+    @Test
+    public void coinReturnAmountReadsEmpty_whenInitialized() {
+        assertEquals("Empty", coinReturnAmount.getText());
     }
 
     @Test
@@ -96,5 +111,12 @@ public class MainActivityTest {
         nickelButton.performClick();
 
         assertEquals("$0.40", statusScreen.getText());
+    }
+
+    @Test
+    public void pressingPennyButton_updatesCoinReturnAmount() {
+        pennyButton.performClick();
+
+        assertEquals("$0.01", coinReturnAmount.getText());
     }
 }

@@ -1,6 +1,8 @@
 <resources>
     <string name="app_name">MobileVendingMachine</string>
     <string name="insert_coin">INSERT COIN</string>
+    <string name="coin_return">Coin Return: </string>
+    <string name="coin_return_amount">Empty</string>
     <string name="quarter">25C</string>
     <string name="dime">10C</string>
     <string name="nickel">5C</string>
