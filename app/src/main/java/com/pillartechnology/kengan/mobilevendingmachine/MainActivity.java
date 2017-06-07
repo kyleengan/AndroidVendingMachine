@@ -101,7 +101,8 @@ public class MainActivity extends AppCompatActivity {
                     updateStatusScreen(getString(R.string.price) + " " + currencyFormat.format(COLA_PRICE));
                 } else {
                     updateStatusScreen(getString(R.string.purchased));
-                    resetAmount();
+                    amountInserted -= COLA_PRICE;
+                    returnChange(false);
                 }
             }
         });
@@ -113,7 +114,8 @@ public class MainActivity extends AppCompatActivity {
                     updateStatusScreen(getString(R.string.price) + " " + currencyFormat.format(CHIPS_PRICE));
                 } else {
                     updateStatusScreen(getString(R.string.purchased));
-                    resetAmount();
+                    amountInserted -= CHIPS_PRICE;
+                    returnChange(false);
                 }
             }
         });
@@ -125,20 +127,27 @@ public class MainActivity extends AppCompatActivity {
                     updateStatusScreen(getString(R.string.price) + " " + currencyFormat.format(CANDY_PRICE));
                 } else {
                     updateStatusScreen(getString(R.string.purchased));
-                    resetAmount();
+                    amountInserted -= CANDY_PRICE;
+                    returnChange(false);
                 }
             }
         });
     }
 
-    protected void resetAmount() {
+    protected void returnChange(boolean updateDisplay) {
+        addCoinReturnAmount(amountInserted);
+
         amountInserted = 0.0;
+
+        if (updateDisplay) {
+            checkStatusScreen();
+        }
     }
 
     protected void addAmount(double amount) {
         amountInserted += amount;
 
-        updateStatusScreen(currencyFormat.format(amountInserted));
+        checkStatusScreen();
     }
 
     protected void updateStatusScreen(String text) {
@@ -160,6 +169,10 @@ public class MainActivity extends AppCompatActivity {
     }
 
     protected void updateCoinReturn(String text) {
-        coinReturn.setText(text);
+        if ("$0.00".equals(text)) {
+            coinReturn.setText(getString(R.string.coin_return_empty));
+        } else {
+            coinReturn.setText(text);
+        }
     }
 }

@@ -159,7 +159,7 @@ public class MainActivityTest {
     }
 
     @Test
-    public void pressingColaButton_withEnoughMoney_setsAmountTo0() {
+    public void pressingColaButton_withExactChange_setsAmountToZero_withNothingInCoinReturn() {
         quarterButton.performClick();
         quarterButton.performClick();
         quarterButton.performClick();
@@ -169,6 +169,22 @@ public class MainActivityTest {
         statusScreen.performClick();
 
         assertEquals("INSERT COIN", statusScreen.getText());
+        assertEquals("Empty", coinReturnAmount.getText());
+    }
+
+    @Test
+    public void pressingColaButton_withExtraChange_setsAmountToZero_andSendsExtraMoneyToCoinReturn() {
+        quarterButton.performClick();
+        quarterButton.performClick();
+        quarterButton.performClick();
+        quarterButton.performClick();
+        quarterButton.performClick();
+        colaButton.performClick();
+
+        statusScreen.performClick();
+
+        assertEquals("INSERT COIN", statusScreen.getText());
+        assertEquals("$0.25", coinReturnAmount.getText());
     }
 
     @Test
@@ -189,7 +205,7 @@ public class MainActivityTest {
     }
 
     @Test
-    public void pressingChipsButton_withEnoughMoney_setsAmountTo0() {
+    public void pressingChipsButton_withExactChange_setsAmountToZero_withNothingInCoinReturn() {
         quarterButton.performClick();
         quarterButton.performClick();
         chipsButton.performClick();
@@ -197,6 +213,20 @@ public class MainActivityTest {
         statusScreen.performClick();
 
         assertEquals("INSERT COIN", statusScreen.getText());
+        assertEquals("Empty", coinReturnAmount.getText());
+    }
+
+    @Test
+    public void pressingChipsButton_withExtraChange_setsAmountToZero_andSendsExtraMoneyToCoinReturn() {
+        quarterButton.performClick();
+        quarterButton.performClick();
+        quarterButton.performClick();
+        chipsButton.performClick();
+
+        statusScreen.performClick();
+
+        assertEquals("INSERT COIN", statusScreen.getText());
+        assertEquals("$0.25", coinReturnAmount.getText());
     }
 
     @Test
@@ -219,7 +249,7 @@ public class MainActivityTest {
     }
 
     @Test
-    public void pressingCandyButton_withEnoughMoney_setsAmountTo0() {
+    public void pressingCandyButton_withExactChange_setsAmountToZero_withNothingInCoinReturn() {
         quarterButton.performClick();
         quarterButton.performClick();
         dimeButton.performClick();
@@ -229,5 +259,19 @@ public class MainActivityTest {
         statusScreen.performClick();
 
         assertEquals("INSERT COIN", statusScreen.getText());
+        assertEquals("Empty", coinReturnAmount.getText());
+    }
+
+    @Test
+    public void pressingCandyButton_withExtraChange_setsAmountToZero_andSendsExtraMoneyToCoinReturn() {
+        quarterButton.performClick();
+        quarterButton.performClick();
+        quarterButton.performClick();
+        candyButton.performClick();
+
+        statusScreen.performClick();
+
+        assertEquals("INSERT COIN", statusScreen.getText());
+        assertEquals("$0.10", coinReturnAmount.getText());
     }
 }
