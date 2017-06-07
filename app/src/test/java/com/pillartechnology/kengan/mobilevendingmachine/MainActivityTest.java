@@ -25,6 +25,7 @@ public class MainActivityTest {
     private Button colaButton;
     private Button chipsButton;
     private Button candyButton;
+    private Button coinReturnButton;
     private TextView coinReturnLabel;
     private TextView coinReturnAmount;
 
@@ -42,6 +43,7 @@ public class MainActivityTest {
         colaButton = (Button) activity.findViewById(R.id.colaButton);
         chipsButton = (Button) activity.findViewById(R.id.chipsButton);
         candyButton = (Button) activity.findViewById(R.id.candyButton);
+        coinReturnButton = (Button) activity.findViewById(R.id.coinReturnButton);
     }
 
     @Test
@@ -92,6 +94,11 @@ public class MainActivityTest {
     @Test
     public void coinReturnAmountReadsEmpty_whenInitialized() {
         assertEquals("Empty", coinReturnAmount.getText());
+    }
+
+    @Test
+    public void coinReturnButtonReadsReturn_whenInitialized() {
+        assertEquals("Return", coinReturnButton.getText());
     }
 
     @Test
