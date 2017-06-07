@@ -11,5 +11,7 @@ The tests can be run from the command line with "gradlew :app:testDebugUnitTest"
 If you'd prefer to run them within the UI, I believe you'll need to hit Edit Configurations and add the Module Directory as the working directory for the test run configuration (per https://stackoverflow.com/questions/43971063/android-unit-testing-robolectric3-3-2-no-such-manifest-file-build-intermedia).
 
 
+
 Thanks for your time and consideration!
+
 Kyle Engan
