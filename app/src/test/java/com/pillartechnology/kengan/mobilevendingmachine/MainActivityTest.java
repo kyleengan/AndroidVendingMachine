@@ -281,4 +281,23 @@ public class MainActivityTest {
         assertEquals("INSERT COIN", statusScreen.getText());
         assertEquals("$0.10", coinReturnAmount.getText());
     }
+
+    @Test
+    public void pressingCoinReturnButton_withNoInsertedCoins_doesNothing() {
+        coinReturnButton.performClick();
+
+        assertEquals("Empty", coinReturnAmount.getText());
+    }
+
+    @Test
+    public void pressingCoinReturnButton_withInsertedCoins_returnsThoseCoins() {
+        quarterButton.performClick();
+        quarterButton.performClick();
+        dimeButton.performClick();
+        nickelButton.performClick();
+
+        coinReturnButton.performClick();
+
+        assertEquals("$0.65", coinReturnAmount.getText());
+    }
 }

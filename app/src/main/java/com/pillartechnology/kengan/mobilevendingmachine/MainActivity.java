@@ -23,6 +23,7 @@ public class MainActivity extends AppCompatActivity {
     private Button colaButton;
     private Button chipsButton;
     private Button candyButton;
+    private Button coinReturnButton;
 
     private NumberFormat currencyFormat;
 
@@ -45,6 +46,7 @@ public class MainActivity extends AppCompatActivity {
         colaButton = (Button) findViewById(R.id.colaButton);
         chipsButton = (Button) findViewById(R.id.chipsButton);
         candyButton = (Button) findViewById(R.id.candyButton);
+        coinReturnButton = (Button) findViewById(R.id.coinReturnButton);
 
         configureText();
 
@@ -130,6 +132,13 @@ public class MainActivity extends AppCompatActivity {
                     amountInserted -= CANDY_PRICE;
                     returnChange(false);
                 }
+            }
+        });
+
+        coinReturnButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                returnChange(true);
             }
         });
     }
