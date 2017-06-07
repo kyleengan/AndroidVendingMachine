@@ -7,4 +7,5 @@
     <string name="dime">10C</string>
     <string name="nickel">5C</string>
     <string name="penny">1C</string>
+    <string name="cola">COLA: $1.00</string>
 </resources>

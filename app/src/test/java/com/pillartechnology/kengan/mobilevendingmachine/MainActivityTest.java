@@ -1,7 +1,5 @@
 package com.pillartechnology.kengan.mobilevendingmachine;
 
-import com.pillartechnology.kengan.mobilevendingmachine.BuildConfig;
-
 import android.app.Activity;
 import android.widget.Button;
 import android.widget.TextView;
@@ -24,6 +22,7 @@ public class MainActivityTest {
     private Button dimeButton;
     private Button nickelButton;
     private Button pennyButton;
+    private Button colaButton;
     private TextView coinReturnLabel;
     private TextView coinReturnAmount;
 
@@ -38,6 +37,7 @@ public class MainActivityTest {
         dimeButton = (Button) activity.findViewById(R.id.dimeButton);
         nickelButton = (Button) activity.findViewById(R.id.nickelButton);
         pennyButton = (Button) activity.findViewById(R.id.pennyButton);
+        colaButton = (Button) activity.findViewById(R.id.colaButton);
     }
 
     @Test
@@ -63,6 +63,11 @@ public class MainActivityTest {
     @Test
     public void pennyButtonReads1C_whenInitialized() {
         assertEquals("1C", pennyButton.getText());
+    }
+
+    @Test
+    public void colaButtonReadsCola100_whenInitialized() {
+        assertEquals("COLA: $1.00", colaButton.getText());
     }
 
     @Test
@@ -119,4 +124,6 @@ public class MainActivityTest {
 
         assertEquals("$0.01", coinReturnAmount.getText());
     }
+
+
 }
