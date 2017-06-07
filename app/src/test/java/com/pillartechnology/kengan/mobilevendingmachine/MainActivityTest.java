@@ -198,4 +198,36 @@ public class MainActivityTest {
 
         assertEquals("INSERT COIN", statusScreen.getText());
     }
+
+    @Test
+    public void pressingCandyButton_withoutEnoughMoney_displaysPRICE065() {
+        candyButton.performClick();
+
+        assertEquals("PRICE: $0.65", statusScreen.getText());
+    }
+
+    @Test
+    public void pressingCandyButton_withEnoughMoney_displaysTHANK_YOU() {
+        quarterButton.performClick();
+        quarterButton.performClick();
+        dimeButton.performClick();
+        nickelButton.performClick();
+
+        candyButton.performClick();
+
+        assertEquals("THANK YOU", statusScreen.getText());
+    }
+
+    @Test
+    public void pressingCandyButton_withEnoughMoney_setsAmountTo0() {
+        quarterButton.performClick();
+        quarterButton.performClick();
+        dimeButton.performClick();
+        nickelButton.performClick();
+        candyButton.performClick();
+
+        statusScreen.performClick();
+
+        assertEquals("INSERT COIN", statusScreen.getText());
+    }
 }

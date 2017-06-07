@@ -117,6 +117,18 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         });
+
+        candyButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (CANDY_PRICE > amountInserted) {
+                    updateStatusScreen(getString(R.string.price) + " " + currencyFormat.format(CANDY_PRICE));
+                } else {
+                    updateStatusScreen(getString(R.string.purchased));
+                    resetAmount();
+                }
+            }
+        });
     }
 
     protected void resetAmount() {
