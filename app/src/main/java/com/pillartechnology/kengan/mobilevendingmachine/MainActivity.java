@@ -86,6 +86,29 @@ public class MainActivity extends AppCompatActivity {
                 addCoinReturnAmount(0.01);
             }
         });
+
+        statusScreen.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                checkStatusScreen();
+            }
+        });
+
+        colaButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (COLA_PRICE > amountInserted) {
+                    updateStatusScreen(getString(R.string.price) + " " + currencyFormat.format(COLA_PRICE));
+                } else {
+                    updateStatusScreen(getString(R.string.purchased));
+                    resetAmount();
+                }
+            }
+        });
+    }
+
+    protected void resetAmount() {
+        amountInserted = 0.0;
     }
 
     protected void addAmount(double amount) {
@@ -96,6 +119,14 @@ public class MainActivity extends AppCompatActivity {
 
     protected void updateStatusScreen(String text) {
         statusScreen.setText(text);
+    }
+
+    protected void checkStatusScreen() {
+        if (amountInserted < 0.000001) {    // basically if == 0, but, y'know... doubles.
+            statusScreen.setText(getString(R.string.insert_coin));
+        } else {
+            statusScreen.setText(currencyFormat.format(amountInserted));
+        }
     }
 
     protected void addCoinReturnAmount(double amount) {

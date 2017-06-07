@@ -10,4 +10,7 @@
     <string name="cola">COLA:</string>
     <string name="chips">CHIPS:</string>
     <string name="candy">CANDY:</string>
+
+    <string name="price">PRICE:</string>
+    <string name="purchased">THANK YOU</string>
 </resources>

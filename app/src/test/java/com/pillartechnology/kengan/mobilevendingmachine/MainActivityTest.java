@@ -139,5 +139,35 @@ public class MainActivityTest {
         assertEquals("$0.01", coinReturnAmount.getText());
     }
 
+    @Test
+    public void pressingColaButton_withoutEnoughMoney_displaysPRICE100() {
+        colaButton.performClick();
 
+        assertEquals("PRICE: $1.00", statusScreen.getText());
+    }
+
+    @Test
+    public void pressingColaButton_withEnoughMoney_displaysTHANK_YOU() {
+        quarterButton.performClick();
+        quarterButton.performClick();
+        quarterButton.performClick();
+        quarterButton.performClick();
+
+        colaButton.performClick();
+
+        assertEquals("THANK YOU", statusScreen.getText());
+    }
+
+    @Test
+    public void pressingColaButton_withEnoughMoney_setsAmountTo0() {
+        quarterButton.performClick();
+        quarterButton.performClick();
+        quarterButton.performClick();
+        quarterButton.performClick();
+        colaButton.performClick();
+
+        statusScreen.performClick();
+
+        assertEquals("INSERT COIN", statusScreen.getText());
+    }
 }
