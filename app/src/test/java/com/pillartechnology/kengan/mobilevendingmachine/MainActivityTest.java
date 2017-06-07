@@ -24,6 +24,7 @@ public class MainActivityTest {
     private Button pennyButton;
     private Button colaButton;
     private Button chipsButton;
+    private Button candyButton;
     private TextView coinReturnLabel;
     private TextView coinReturnAmount;
 
@@ -40,6 +41,7 @@ public class MainActivityTest {
         pennyButton = (Button) activity.findViewById(R.id.pennyButton);
         colaButton = (Button) activity.findViewById(R.id.colaButton);
         chipsButton = (Button) activity.findViewById(R.id.chipsButton);
+        candyButton = (Button) activity.findViewById(R.id.candyButton);
     }
 
     @Test
@@ -73,8 +75,13 @@ public class MainActivityTest {
     }
 
     @Test
-    public void chipsButtonReadschips050_whenInitialized() {
+    public void chipsButtonReadsChips050_whenInitialized() {
         assertEquals("CHIPS: $0.50", chipsButton.getText());
+    }
+
+    @Test
+    public void candyButtonReadsCandy065_whenInitialized() {
+        assertEquals("CANDY: $0.65", candyButton.getText());
     }
 
     @Test

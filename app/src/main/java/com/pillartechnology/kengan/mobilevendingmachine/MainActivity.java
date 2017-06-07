@@ -10,17 +10,24 @@ import java.text.NumberFormat;
 
 public class MainActivity extends AppCompatActivity {
 
+    private static final double COLA_PRICE = 1.0;
+    private static final double CHIPS_PRICE = 0.5;
+    private static final double CANDY_PRICE = 0.65;
+
     private TextView statusScreen;
     private TextView coinReturn;
     private Button quarterButton;
     private Button dimeButton;
     private Button nickelButton;
     private Button pennyButton;
+    private Button colaButton;
+    private Button chipsButton;
+    private Button candyButton;
 
     private NumberFormat currencyFormat;
 
-    private Double amountInserted = 0.0;
-    private Double amountInCoinReturn = 0.0;
+    private double amountInserted = 0.0;
+    private double amountInCoinReturn = 0.0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,8 +42,20 @@ public class MainActivity extends AppCompatActivity {
         dimeButton = (Button) findViewById(R.id.dimeButton);
         nickelButton = (Button) findViewById(R.id.nickelButton);
         pennyButton = (Button) findViewById(R.id.pennyButton);
+        colaButton = (Button) findViewById(R.id.colaButton);
+        chipsButton = (Button) findViewById(R.id.chipsButton);
+        candyButton = (Button) findViewById(R.id.candyButton);
+
+        configureText();
 
         configureClickListeners();
+    }
+
+    protected void configureText() {
+        colaButton.setText(colaButton.getText() + " " + currencyFormat.format(COLA_PRICE));
+        chipsButton.setText(chipsButton.getText() + " " + currencyFormat.format(CHIPS_PRICE));
+        candyButton.setText(candyButton.getText() + " " + currencyFormat.format(CANDY_PRICE));
+
     }
 
     protected void configureClickListeners() {
@@ -69,7 +88,7 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    protected void addAmount(Double amount) {
+    protected void addAmount(double amount) {
         amountInserted += amount;
 
         updateStatusScreen(currencyFormat.format(amountInserted));
@@ -79,7 +98,7 @@ public class MainActivity extends AppCompatActivity {
         statusScreen.setText(text);
     }
 
-    protected void addCoinReturnAmount(Double amount) {
+    protected void addCoinReturnAmount(double amount) {
         amountInCoinReturn += amount;
 
         updateCoinReturn(currencyFormat.format(amountInCoinReturn));

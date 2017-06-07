@@ -58,21 +58,27 @@
         android:layout_height="70dp"
         android:text="@string/chips"/>
 
+    <Button
+        android:id="@+id/candyButton"
+        android:layout_width="200dp"
+        android:layout_height="70dp"
+        android:text="@string/candy"/>
+
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="30dp"
+        android:layout_height="60dp"
         android:orientation="horizontal">
         <TextView
             android:id="@+id/coinReturnLabel"
             android:layout_width="100dp"
-            android:layout_height="28dp"
+            android:layout_height="56dp"
             android:gravity="center"
             android:text="@string/coin_return"/>
 
         <TextView
             android:id="@+id/coinReturnAmount"
             android:layout_width="50dp"
-            android:layout_height="28dp"
+            android:layout_height="56dp"
             android:text="@string/coin_return_amount"/>
     </LinearLayout>
 
