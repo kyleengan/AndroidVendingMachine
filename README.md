@@ -15,3 +15,7 @@ If you'd prefer to run them within the UI, I believe you'll need to hit Edit Con
 Thanks for your time and consideration!
 
 Kyle Engan
+
+
+
+NOTE: For meeting the "next time the status display is checked..." requirements (e.g. after displaying the price of a product), the status display is tappable.  In a perfect world, I'd have used a timer, but I lost the fight on how to TDD those.  Apologies!
