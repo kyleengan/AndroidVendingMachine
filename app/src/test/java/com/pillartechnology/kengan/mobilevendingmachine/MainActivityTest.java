@@ -47,6 +47,10 @@ public class MainActivityTest {
         coinReturnButton = (Button) activity.findViewById(R.id.coinReturnButton);
     }
 
+    //==============================================================================================
+    // Initialization tests
+    //==============================================================================================
+
     @Test
     public void statusScreenReadsINSERT_COIN_whenInitialized() {
         assertEquals("INSERT COIN", statusScreen.getText());
@@ -102,6 +106,10 @@ public class MainActivityTest {
         assertEquals("Return", coinReturnButton.getText());
     }
 
+    //==============================================================================================
+    // Insert Coin tests
+    //==============================================================================================
+
     @Test
     public void pressingQuarterButton_updatesAmountInsertedBy25Cents() {
         quarterButton.performClick();
@@ -146,6 +154,10 @@ public class MainActivityTest {
 
         assertEquals("$0.01", coinReturnAmount.getText());
     }
+
+    //==============================================================================================
+    // COLA tests
+    //==============================================================================================
 
     @Test
     public void pressingColaButton_withoutEnoughMoney_displaysPRICE100() {
@@ -220,6 +232,10 @@ public class MainActivityTest {
         assertEquals("EXACT CHANGE ONLY", statusScreen.getText());
     }
 
+    //==============================================================================================
+    // CHIPS tests
+    //==============================================================================================
+
     @Test
     public void pressingChipsButton_withoutEnoughMoney_displaysPRICE050() {
         chipsButton.performClick();
@@ -286,6 +302,10 @@ public class MainActivityTest {
 
         assertEquals("EXACT CHANGE ONLY", statusScreen.getText());
     }
+
+    //==============================================================================================
+    // CANDY tests
+    //==============================================================================================
 
     @Test
     public void pressingCandyButton_withoutEnoughMoney_displaysPRICE065() {
@@ -358,6 +378,10 @@ public class MainActivityTest {
         assertEquals("EXACT CHANGE ONLY", statusScreen.getText());
     }
 
+    //==============================================================================================
+    // Coin Return tests
+    //==============================================================================================
+
     @Test
     public void pressingCoinReturnButton_withNoInsertedCoins_doesNothing() {
         coinReturnButton.performClick();
@@ -376,6 +400,10 @@ public class MainActivityTest {
 
         assertEquals("$0.65", coinReturnAmount.getText());
     }
+
+    //==============================================================================================
+    // Exact Change tests
+    //==============================================================================================
 
     @Test
     public void whenMachineDoesntHaveAtLeastTwoDimesAndOneNickel_orFiveNickels_shouldDisplayEXACT_CHANGE_ONLY() {

@@ -40,6 +40,10 @@ public class MainActivity extends AppCompatActivity {
 
     private boolean exactChangeMode = false;
 
+    //==============================================================================================
+    // Lifecycle and initialization methods
+    //==============================================================================================
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -168,6 +172,10 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
+    //==============================================================================================
+    // Business Logic methods
+    //==============================================================================================
+
     protected void returnChange(boolean updateDisplay) {
         // yay floating point arithmetic.
         while (amountInserted  - 0.000001 > 0.0) {
@@ -230,6 +238,10 @@ public class MainActivity extends AppCompatActivity {
             coinReturn.setText(text);
         }
     }
+
+    //==============================================================================================
+    // Test Utility methods
+    //==============================================================================================
 
     protected void stockProducts(int cola, int chips, int candy) {
         colaAmount = cola;
