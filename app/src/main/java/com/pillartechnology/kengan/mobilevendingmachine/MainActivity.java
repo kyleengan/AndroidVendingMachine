@@ -197,10 +197,10 @@ public class MainActivity extends AppCompatActivity {
 
     protected void checkStatusScreen() {
         if (amountInserted < 0.000001) {    // basically if == 0, but, y'know... doubles.
-            if (dimeAmount < 2 || nickelAmount == 0) {
-                statusScreen.setText(getString(R.string.exact_change));
+            if ((dimeAmount >= 2 && nickelAmount > 0) || (nickelAmount >= 5)) {     // Machine can give change with
+                statusScreen.setText(getString(R.string.insert_coin));              // 2 dimes, one nickel OR 5 nickels
             } else {
-                statusScreen.setText(getString(R.string.insert_coin));
+                statusScreen.setText(getString(R.string.exact_change));
             }
         } else {
             statusScreen.setText(currencyFormat.format(amountInserted));

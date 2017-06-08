@@ -330,7 +330,7 @@ public class MainActivityTest {
     }
 
     @Test
-    public void whenMachineDoesntHaveAtLeastTwoDimesAndOneNickel_shouldDisplayExactChangeOnly() {
+    public void whenMachineDoesntHaveAtLeastTwoDimesAndOneNickel_orFiveNickels_shouldDisplayEXACT_CHANGE_ONLY() {
         activity.stockCoins(0, 2, 1);
         quarterButton.performClick();
         quarterButton.performClick();
@@ -340,5 +340,31 @@ public class MainActivityTest {
         statusScreen.performClick();
 
         assertEquals("EXACT CHANGE ONLY", statusScreen.getText());
+    }
+
+    @Test
+    public void whenMachineHasAtLeastFiveNickels_shouldDisplayINSERT_COIN() {
+        activity.stockCoins(0, 0, 7);
+        quarterButton.performClick();
+        quarterButton.performClick();
+        quarterButton.performClick();
+        candyButton.performClick();
+
+        statusScreen.performClick();
+
+        assertEquals("INSERT COIN", statusScreen.getText());
+    }
+
+    @Test
+    public void whenMachineHasAtLeastTwoDimeesAndANickel_shouldDisplayINSERT_COIN() {
+        activity.stockCoins(0, 3, 1);
+        quarterButton.performClick();
+        quarterButton.performClick();
+        quarterButton.performClick();
+        candyButton.performClick();
+
+        statusScreen.performClick();
+
+        assertEquals("INSERT COIN", statusScreen.getText());
     }
 }
