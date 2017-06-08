@@ -205,6 +205,22 @@ public class MainActivityTest {
     }
 
     @Test
+    public void pressingColaButton_withMoreMoneyInsertedThanProductPrice_whenExactChangeModeIsActive_displaysEXACT_CHANGE_ONLY() {
+        activity.stockCoins(0, 0, 0);
+        statusScreen.performClick();
+
+        quarterButton.performClick();
+        quarterButton.performClick();
+        quarterButton.performClick();
+        quarterButton.performClick();
+        quarterButton.performClick();
+
+        colaButton.performClick();
+
+        assertEquals("EXACT CHANGE ONLY", statusScreen.getText());
+    }
+
+    @Test
     public void pressingChipsButton_withoutEnoughMoney_displaysPRICE050() {
         chipsButton.performClick();
 
@@ -253,6 +269,22 @@ public class MainActivityTest {
         chipsButton.performClick();
 
         assertEquals("SOLD OUT", statusScreen.getText());
+    }
+
+    @Test
+    public void pressingChipsButton_withMoreMoneyInsertedThanProductPrice_whenExactChangeModeIsActive_displaysEXACT_CHANGE_ONLY() {
+        activity.stockCoins(0, 0, 0);
+        statusScreen.performClick();
+
+        quarterButton.performClick();
+        quarterButton.performClick();
+        quarterButton.performClick();
+        quarterButton.performClick();
+        quarterButton.performClick();
+
+        chipsButton.performClick();
+
+        assertEquals("EXACT CHANGE ONLY", statusScreen.getText());
     }
 
     @Test
@@ -311,6 +343,22 @@ public class MainActivityTest {
     }
 
     @Test
+    public void pressingCandyButton_withMoreMoneyInsertedThanProductPrice_whenExactChangeModeIsActive_displaysEXACT_CHANGE_ONLY() {
+        activity.stockCoins(0, 0, 0);
+        statusScreen.performClick();
+
+        quarterButton.performClick();
+        quarterButton.performClick();
+        quarterButton.performClick();
+        quarterButton.performClick();
+        quarterButton.performClick();
+
+        candyButton.performClick();
+
+        assertEquals("EXACT CHANGE ONLY", statusScreen.getText());
+    }
+
+    @Test
     public void pressingCoinReturnButton_withNoInsertedCoins_doesNothing() {
         coinReturnButton.performClick();
 
@@ -356,7 +404,7 @@ public class MainActivityTest {
     }
 
     @Test
-    public void whenMachineHasAtLeastTwoDimeesAndANickel_shouldDisplayINSERT_COIN() {
+    public void whenMachineHasAtLeastTwoDimesAndANickel_shouldDisplayINSERT_COIN() {
         activity.stockCoins(0, 3, 1);
         quarterButton.performClick();
         quarterButton.performClick();

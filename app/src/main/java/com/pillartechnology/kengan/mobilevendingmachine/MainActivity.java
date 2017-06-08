@@ -38,6 +38,8 @@ public class MainActivity extends AppCompatActivity {
     private int dimeAmount = 2;
     private int nickelAmount = 1;
 
+    private boolean exactChangeMode = false;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -114,6 +116,8 @@ public class MainActivity extends AppCompatActivity {
                     updateStatusScreen(getString(R.string.sold_out));
                 } else if (COLA_PRICE > amountInserted) {
                     updateStatusScreen(getString(R.string.price) + " " + currencyFormat.format(COLA_PRICE));
+                } else if (COLA_PRICE < amountInserted - 0.00001 && exactChangeMode) {
+                    updateStatusScreen(getString(R.string.exact_change));
                 } else {
                     updateStatusScreen(getString(R.string.purchased));
                     amountInserted -= COLA_PRICE;
@@ -129,6 +133,8 @@ public class MainActivity extends AppCompatActivity {
                     updateStatusScreen(getString(R.string.sold_out));
                 } else if (CHIPS_PRICE > amountInserted) {
                     updateStatusScreen(getString(R.string.price) + " " + currencyFormat.format(CHIPS_PRICE));
+                } else if (CHIPS_PRICE < amountInserted - 0.00001 && exactChangeMode) {
+                    updateStatusScreen(getString(R.string.exact_change));
                 } else {
                     updateStatusScreen(getString(R.string.purchased));
                     amountInserted -= CHIPS_PRICE;
@@ -144,6 +150,8 @@ public class MainActivity extends AppCompatActivity {
                     updateStatusScreen(getString(R.string.sold_out));
                 } else if (CANDY_PRICE > amountInserted) {
                     updateStatusScreen(getString(R.string.price) + " " + currencyFormat.format(CANDY_PRICE));
+                } else if (CANDY_PRICE < amountInserted - 0.00001 && exactChangeMode) {
+                    updateStatusScreen(getString(R.string.exact_change));
                 } else {
                     updateStatusScreen(getString(R.string.purchased));
                     amountInserted -= CANDY_PRICE;
@@ -199,8 +207,10 @@ public class MainActivity extends AppCompatActivity {
         if (amountInserted < 0.000001) {    // basically if == 0, but, y'know... doubles.
             if ((dimeAmount >= 2 && nickelAmount > 0) || (nickelAmount >= 5)) {     // Machine can give change with
                 statusScreen.setText(getString(R.string.insert_coin));              // 2 dimes, one nickel OR 5 nickels
+                exactChangeMode = false;
             } else {
                 statusScreen.setText(getString(R.string.exact_change));
+                exactChangeMode = true;
             }
         } else {
             statusScreen.setText(currencyFormat.format(amountInserted));
