@@ -297,7 +297,7 @@ public class MainActivityTest {
 
         statusScreen.performClick();
 
-        assertEquals("INSERT COIN", statusScreen.getText());
+        assertEquals("EXACT CHANGE ONLY", statusScreen.getText());
         assertEquals("$0.10", coinReturnAmount.getText());
     }
 
@@ -329,5 +329,16 @@ public class MainActivityTest {
         assertEquals("$0.65", coinReturnAmount.getText());
     }
 
+    @Test
+    public void whenMachineDoesntHaveAtLeastTwoDimesAndOneNickel_shouldDisplayExactChangeOnly() {
+        activity.stockCoins(0, 2, 1);
+        quarterButton.performClick();
+        quarterButton.performClick();
+        quarterButton.performClick();
+        candyButton.performClick();
 
+        statusScreen.performClick();
+
+        assertEquals("EXACT CHANGE ONLY", statusScreen.getText());
+    }
 }

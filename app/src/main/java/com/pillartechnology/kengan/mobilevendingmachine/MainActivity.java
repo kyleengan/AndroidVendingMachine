@@ -34,6 +34,10 @@ public class MainActivity extends AppCompatActivity {
     private int chipsAmount = 1;
     private int candyAmount = 1;
 
+    private int quarterAmount = 0;
+    private int dimeAmount = 2;
+    private int nickelAmount = 1;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -68,6 +72,7 @@ public class MainActivity extends AppCompatActivity {
         quarterButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                quarterAmount++;
                 addAmount(0.25);
             }
         });
@@ -75,6 +80,7 @@ public class MainActivity extends AppCompatActivity {
         dimeButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                dimeAmount++;
                 addAmount(0.10);
             }
         });
@@ -82,6 +88,7 @@ public class MainActivity extends AppCompatActivity {
         nickelButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                nickelAmount++;
                 addAmount(0.05);
             }
         });
@@ -154,7 +161,22 @@ public class MainActivity extends AppCompatActivity {
     }
 
     protected void returnChange(boolean updateDisplay) {
-        addCoinReturnAmount(amountInserted);
+        // yay floating point arithmetic.
+        while (amountInserted  - 0.000001 > 0.0) {
+            if (amountInserted + 0.000001 >= 0.25 && quarterAmount > 0) {
+                quarterAmount--;
+                addCoinReturnAmount(0.25);
+                amountInserted -= 0.25;
+            } else if (amountInserted + 0.000001 >= 0.10 && dimeAmount > 0) {
+                dimeAmount--;
+                addCoinReturnAmount(0.10);
+                amountInserted -= 0.10;
+            } else if (amountInserted + 0.000001 >= 0.05 && nickelAmount > 0) {
+                nickelAmount--;
+                addCoinReturnAmount(0.05);
+                amountInserted -= 0.05;
+            }
+        }
 
         amountInserted = 0.0;
 
@@ -175,7 +197,11 @@ public class MainActivity extends AppCompatActivity {
 
     protected void checkStatusScreen() {
         if (amountInserted < 0.000001) {    // basically if == 0, but, y'know... doubles.
-            statusScreen.setText(getString(R.string.insert_coin));
+            if (dimeAmount < 2 || nickelAmount == 0) {
+                statusScreen.setText(getString(R.string.exact_change));
+            } else {
+                statusScreen.setText(getString(R.string.insert_coin));
+            }
         } else {
             statusScreen.setText(currencyFormat.format(amountInserted));
         }
@@ -199,5 +225,11 @@ public class MainActivity extends AppCompatActivity {
         colaAmount = cola;
         chipsAmount = chips;
         candyAmount = candy;
+    }
+
+    protected void stockCoins(int quarters, int dimes, int nickels) {
+        quarterAmount = quarters;
+        dimeAmount = dimes;
+        nickelAmount = nickels;
     }
 }
