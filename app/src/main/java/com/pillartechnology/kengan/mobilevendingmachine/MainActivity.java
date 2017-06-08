@@ -116,7 +116,9 @@ public class MainActivity extends AppCompatActivity {
         chipsButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (CHIPS_PRICE > amountInserted) {
+                if (chipsAmount == 0) {
+                    updateStatusScreen(getString(R.string.sold_out));
+                } else if (CHIPS_PRICE > amountInserted) {
                     updateStatusScreen(getString(R.string.price) + " " + currencyFormat.format(CHIPS_PRICE));
                 } else {
                     updateStatusScreen(getString(R.string.purchased));
