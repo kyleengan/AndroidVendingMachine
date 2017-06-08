@@ -1,6 +1,5 @@
 package com.pillartechnology.kengan.mobilevendingmachine;
 
-import android.app.Activity;
 import android.widget.Button;
 import android.widget.TextView;
 
@@ -12,6 +11,7 @@ import org.robolectric.RobolectricTestRunner;
 import org.robolectric.annotation.Config;
 
 import static org.junit.Assert.assertEquals;
+
 
 @RunWith(RobolectricTestRunner.class)
 @Config(constants = BuildConfig.class)
