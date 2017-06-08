@@ -103,7 +103,9 @@ public class MainActivity extends AppCompatActivity {
         colaButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (COLA_PRICE > amountInserted) {
+                if (colaAmount == 0) {
+                    updateStatusScreen(getString(R.string.sold_out));
+                } else if (COLA_PRICE > amountInserted) {
                     updateStatusScreen(getString(R.string.price) + " " + currencyFormat.format(COLA_PRICE));
                 } else {
                     updateStatusScreen(getString(R.string.purchased));

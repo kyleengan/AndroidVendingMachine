@@ -196,6 +196,15 @@ public class MainActivityTest {
     }
 
     @Test
+    public void pressingColaButton_whenProductIsSoldOut_displaysSOLD_OUT() {
+        activity.stockProducts(0, 0, 0);
+
+        colaButton.performClick();
+
+        assertEquals("SOLD OUT", statusScreen.getText());
+    }
+
+    @Test
     public void pressingChipsButton_withoutEnoughMoney_displaysPRICE050() {
         chipsButton.performClick();
 
