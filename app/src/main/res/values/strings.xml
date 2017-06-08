@@ -14,4 +14,5 @@
 
     <string name="price">PRICE:</string>
     <string name="purchased">THANK YOU</string>
+    <string name="sold_out">SOLD OUT</string>
 </resources>

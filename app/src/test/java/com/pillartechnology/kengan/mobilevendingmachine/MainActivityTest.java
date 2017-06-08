@@ -29,10 +29,11 @@ public class MainActivityTest {
     private TextView coinReturnLabel;
     private TextView coinReturnAmount;
 
+    private MainActivity activity;
 
     @Before
     public void setUp() {
-        Activity activity = Robolectric.setupActivity(MainActivity.class);
+        activity = Robolectric.setupActivity(MainActivity.class);
         statusScreen = (TextView) activity.findViewById(R.id.statusScreen);
         coinReturnAmount = (TextView) activity.findViewById(R.id.coinReturnAmount);
         coinReturnLabel = (TextView) activity.findViewById(R.id.coinReturnLabel);
@@ -283,6 +284,15 @@ public class MainActivityTest {
     }
 
     @Test
+    public void pressingCandyButton_whenProductIsSoldOut_displaysSOLD_OUT() {
+        activity.stockProducts(0, 0, 0);
+
+        candyButton.performClick();
+
+        assertEquals("SOLD OUT", statusScreen.getText());
+    }
+
+    @Test
     public void pressingCoinReturnButton_withNoInsertedCoins_doesNothing() {
         coinReturnButton.performClick();
 
@@ -300,4 +310,6 @@ public class MainActivityTest {
 
         assertEquals("$0.65", coinReturnAmount.getText());
     }
+
+
 }

@@ -30,6 +30,10 @@ public class MainActivity extends AppCompatActivity {
     private double amountInserted = 0.0;
     private double amountInCoinReturn = 0.0;
 
+    private int colaAmount = 1;
+    private int chipsAmount = 1;
+    private int candyAmount = 1;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -125,7 +129,9 @@ public class MainActivity extends AppCompatActivity {
         candyButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (CANDY_PRICE > amountInserted) {
+                if (candyAmount == 0) {
+                    updateStatusScreen(getString(R.string.sold_out));
+                } else if (CANDY_PRICE > amountInserted) {
                     updateStatusScreen(getString(R.string.price) + " " + currencyFormat.format(CANDY_PRICE));
                 } else {
                     updateStatusScreen(getString(R.string.purchased));
@@ -183,5 +189,11 @@ public class MainActivity extends AppCompatActivity {
         } else {
             coinReturn.setText(text);
         }
+    }
+
+    protected void stockProducts(int cola, int chips, int candy) {
+        colaAmount = cola;
+        chipsAmount = chips;
+        candyAmount = candy;
     }
 }
